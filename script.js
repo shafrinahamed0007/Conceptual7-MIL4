@@ -50,11 +50,22 @@ const wishlistBtns = document.querySelectorAll(".wishlist-btn-card");
 
 wishlistBtns.forEach((wishlistBtn) => {
   wishlistBtn.addEventListener("click", function () {
-    
     let wishCount = document.getElementById("wishCount");
     let wishCountValue = parseInt(wishCount.innerText);
     wishCountValue++;
     wishCount.innerText = wishCountValue;
+  });
+});
+
+const buttons = document.querySelectorAll(".add-to-cart-btn");
+let cart = [];
+buttons.forEach((button) => {
+  button.addEventListener("click", function (event) {
+    const cart = event.target.closest('.product-cart');
+
+    const productName=  cart.querySelector(".product-name").textContent;
+    const price = cart.querySelector(".price").textContent;
+    console.log(price);
     
   });
 });
